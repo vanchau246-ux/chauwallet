@@ -1,0 +1,70 @@
+/* Custom Styles for Where's Chau Money? */
+
+/* Tailwind Configuration Simulation */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body { 
+        font-family: 'Inter', sans-serif;
+        background-color: #F8FAFC;
+        color: #0F172A;
+        transition: background-color 0.3s, color 0.3s;
+        @apply antialiased;
+    }
+    .dark body { 
+        background-color: #0F172A;
+        color: #F8FAFC;
+    }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background-color: white;
+    border: 1px solid #F1F5F9;
+    border-radius: 2rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover { 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.dark .glass-card {
+    background-color: #1E293B;
+    border-color: #334155;
+    box-shadow: none;
+}
+
+.dark .glass-card:hover { 
+    background-color: rgba(30, 41, 59, 0.8);
+}
+
+/* Navigation Buttons */
+.nav-btn.active {
+    @apply text-indigo-600 bg-indigo-50;
+}
+.dark .nav-btn.active {
+    @apply bg-indigo-900/20;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background-color: #E2E8F0; border-radius: 9999px; }
+.dark ::-webkit-scrollbar-thumb { background-color: #334155; }
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-content:not(.hidden) {
+    animation: fadeIn 0.4s ease-out forwards;
+}
